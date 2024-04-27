@@ -1,2 +1,3 @@
 class Wall:
-    pass
+    armor = 10
+    height = 5
