@@ -1,24 +1,43 @@
 ASSIGNMENT
-Add a .get_cost() method to your wall class. What do you think it should return? The cost of a wall is the product of its height and armor:
+Add a constructor to our Wall class. It should take depth, height and width as parameters, in that order, and set them as properties. It should also compute an additional property called volume. Volume is the width times height times depth.
 
-cost = armor \* height
-
-METHODS RETURN VALUES
-If a normal function doesn't return anything, it's typically not a very useful function. In contrast, methods often don't return anything explicitly because they can mutate the properties of the object instead. That's exactly what we did in the last assignment.
-
-However, they can return values if you want! They're just functions with access to an object, after all.
+CONSTRUCTORS (OR INITIALIZERS)
+It's rare in the real world to see a class that defines properties the way we've been doing it:
 
 class Soldier:
+name = "Legolas"
 armor = 2
 num_weapons = 2
+Copy icon
+It's more practical to use a constructor. In Python, if you name a method **init**, that's the constructor and it is called when a new object is created.
 
-    def get_speed(self):
-        speed = 10
-        speed -= self.armor
-        speed -= self.num_weapons
-        return speed
+So, with a constructor, the code would look like this:
 
-soldier_one = Soldier()
-print(soldier_one.get_speed())
+class Soldier:
+def **init**(self):
+self.name = "Legolas"
+self.armor = 2
+self.num_weapons = 2
+Copy icon
+Now we can make the starting armor and number of weapons configurable with some parameters!
 
-# prints "6"
+class Soldier:
+def **init**(self, name, armor, num_weapons):
+self.name = name
+self.armor = armor
+self.num_weapons = num_weapons
+
+soldier = Soldier("Legolas", 5, 10)
+print(soldier.name)
+
+# prints "Legolas"
+
+print(soldier.armor)
+
+# prints "5"
+
+print(soldier.num_weapons)
+
+# prints "10"
+
+Copy icon

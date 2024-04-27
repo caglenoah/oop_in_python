@@ -1,31 +1,37 @@
 from main import *
 
-run_cases = [(Wall(), [50, 100]), (Wall(), [50, 100, 200])]
+run_cases = [
+    (Wall(2, 3, 4), 24),
+    (Wall(3, 4, 5), 60),
+    (Wall(4, 5, 6), 120),
+    (Wall(1, 2, 3), 6),
+]
 
 submit_cases = run_cases + [
-    (Wall(), [50, 100, 200, 400, 800]),
-    (Wall(), [50, 100, 200, 400, 800, 1600]),
-    (Wall(), [50, 100, 200, 400, 800, 1600, 3200]),
+    (Wall(7, 8, 9), 504),
+    (Wall(10, 11, 12), 1320),
+    (Wall(13, 14, 15), 2730),
+    (Wall(16, 17, 18), 4896),
+    (Wall(19, 20, 21), 7980),
+    (Wall(22, 23, 24), 12144),
 ]
 
 
-def test(wall, expected_outputs):
+def test(wall, expected_output):
     print("---------------------------------")
-    actual_outputs = []
-    for _ in expected_outputs:
-        cost = wall.get_cost()
-        actual_outputs.append(cost)
-        print(f"Cost of wall: {cost}")
-        wall.fortify()
-        print("fortifying wall...")
-    print(f"Expecting: {expected_outputs}")
-    print(f"Actual: {actual_outputs}")
-
-    if actual_outputs == expected_outputs:
-        print("Pass")
-        return True
-    print("Fail")
-    return False
+    try:
+        volume = wall.volume
+        print(
+            f"A wall with {wall.depth} depth, {wall.height} height, {wall.width} width"
+        )
+        print(f"Expected volume: {expected_output}")
+        print(f"Actual volume: {volume}")
+        if expected_output == volume:
+            print("Pass")
+            return True
+    except Exception as e:
+        print(f"Error: {e}")
+        return False
 
 
 def main():
