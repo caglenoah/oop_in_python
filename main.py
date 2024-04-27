@@ -3,4 +3,4 @@ class Wall:
     height = 5
 
     def fortify(self):
-        pass
+        self.armor *= 2
