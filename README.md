@@ -1,27 +1,24 @@
 ASSIGNMENT
-Add a fortify() method to your wall class. It should double the current armor property.
+Add a .get_cost() method to your wall class. What do you think it should return? The cost of a wall is the product of its height and armor:
 
-METHODS
-After the last exercise, you might be wondering why classes are useful, they're like dictionaries... but worse!
+cost = armor \* height
 
-One thing that makes classes cool is that we can define methods on them. A method is a function that's tied directly to a class and has access to all its properties.
+METHODS RETURN VALUES
+If a normal function doesn't return anything, it's typically not a very useful function. In contrast, methods often don't return anything explicitly because they can mutate the properties of the object instead. That's exactly what we did in the last assignment.
+
+However, they can return values if you want! They're just functions with access to an object, after all.
 
 class Soldier:
-health = 5
+armor = 2
+num_weapons = 2
 
-    def take_damage(self, damage):
-        self.health -= damage
+    def get_speed(self):
+        speed = 10
+        speed -= self.armor
+        speed -= self.num_weapons
+        return speed
 
 soldier_one = Soldier()
-soldier_one.take_damage(2)
-print(soldier_one.health)
+print(soldier_one.get_speed())
 
-# prints "3"
-
-Copy icon
-SELF
-Methods are nested within the class declaration. Their first parameter is always the instance of the class that the method is being called on. By convention, it's called "self". Because self is a reference to the object, you can use it to read and update the properties of the object.
-
-Notice that methods are called directly on an object using the dot operator.
-
-my_object.my_method()
+# prints "6"
