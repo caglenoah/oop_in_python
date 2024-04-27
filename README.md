@@ -1,8 +1,9 @@
-# oop_in_python
-
 ASSIGNMENT
-One of the greatest sins when trying to write "clean code" is using misleading names for your variables and functions. Take a look at the destroy_wall function. Based on its name, you might assume that it destroys a single wall, but if you look closely, you'll see that it handles multiple walls.
+Your manager noticed that there's a lot of repetitive code in the "Age of Dragons" code base. She asked you to update the fight_soldiers function so that the DPS (damage-per-second) calculation is only written once.
 
-The test suite expects a different function name. Take a look at the main_test.py file to see what it's looking for, and rename the function accordingly.
+Notice how these two lines are practically identical:
 
-Additionally, try to rename the variables inside the function to be more descriptive. After passing the tests, take a look at the solution to see how we named everything.
+soldier_one_dps = soldier_one["damage"] _ soldier_one["attacks_per_second"]
+soldier_two_dps = soldier_two["damage"] _ soldier_two["attacks_per_second"]
+Copy icon
+Create a new function called get_soldier_dps that takes a soldier and returns its DPS using the same logic as the lines above. Then, replace the two lines above with calls to get_soldier_dps.
