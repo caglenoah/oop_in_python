@@ -1,9 +1,42 @@
 ASSIGNMENT
-Your manager noticed that there's a lot of repetitive code in the "Age of Dragons" code base. She asked you to update the fight_soldiers function so that the DPS (damage-per-second) calculation is only written once.
+Create a class called Wall on line 1. It should have a property called armor that is initialized to 10 and a height that starts at 5.
 
-Notice how these two lines are practically identical:
+CLASSES
+A class is a special type of value in an object-oriented programming language like Python. It's similar to a dictionary in that it usually stores other types inside itself.
 
-soldier_one_dps = soldier_one["damage"] _ soldier_one["attacks_per_second"]
-soldier_two_dps = soldier_two["damage"] _ soldier_two["attacks_per_second"]
+# Defines a new class called "Soldier"
+
+class Soldier:
+health = 5
+armor = 3
+damage = 2
 Copy icon
-Create a new function called get_soldier_dps that takes a soldier and returns its DPS using the same logic as the lines above. Then, replace the two lines above with calls to get_soldier_dps.
+Just like a string, integer or float, a class is a type, but instead of being a built-in type, your classes are custom types that you define.
+
+An object is just an instance of a class type. For example:
+
+health = 50
+
+# health is an instance of an integer type
+
+aragorn = Soldier()
+
+# aragorn is an instance of the Soldier type (class)
+
+Copy icon
+"Classes" are custom new types that we define as the programmer. Each new instance of a class is an "object".
+
+EXAMPLE
+class Archer:
+health = 40
+arrows = 10
+
+# Create several instances of the Archer class
+
+legolas = Archer()
+bard = Archer()
+
+# Print class properties
+
+print(legolas.health) # 40
+print(bard.arrows) # 10
